@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#define bool _Bool
 
 void affichage (int grille[9][9])
 {
@@ -41,9 +42,6 @@ bool absentSurBloc (int k, int grille[9][9], int i, int j) // k etant la valeur 
             if (grille[i][j] == k)
                 return false;
     return true;
-}
-
-	}
 }
 
 bool estValide (int grille[9][9], int position)
@@ -87,7 +85,7 @@ int main(int argc, char **argv)
 	}
 	else 
 	{
-		char **grille;
+		int grille[9][9];
 		int i;
 		int j;
 
@@ -101,14 +99,16 @@ int main(int argc, char **argv)
 				j++;
 			}
 		i++;
-		}		
+		}
+			
 		
 		affichage(grille);
-		estvalide(grille);
+		estValide(grille, 0);
 		affichage(grille);
 		//copier les données entrées dans le tableau entrée
 		//verifier s'il y a des erreurs dans la variable entree avec la fonction ft_verif
 		//completer le sudoku et lancer une fonction de vérification
 		//si erreur revenir en arrière : notion de backtracking : https://openclassrooms.com/courses/le-backtracking-par-l-exemple-resoudre-un-sudoku
 		//puis recompleter
+	}
 }
